@@ -1,0 +1,87 @@
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Monda&family=Montserrat:wght@100;400&family=Oxanium:wght@600&family=Poppins:wght@500&family=Recursive&display=swap');
+
+/* Import Tailwind CSS utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS for Hero component */
+@layer components {
+    .card {
+        @apply
+            bg-white text-gray-700 w-72 min-h-[10rem] shadow-lg rounded-md overflow-hidden;
+    }
+
+    /* Animations */
+    .wave {
+        animation: wave 2s infinite;
+    }
+
+    @keyframes wave {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2); /* Enlarge the wave at 50% of the animation */
+        }
+    }
+
+    /* Add a fade-in animation */
+    .fadeIn {
+        animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+.spinner {
+    border-top-color: #6366f1;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom styles for moving greeting */
+@layer components {
+    .hero-container {
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        padding-top: 80px;
+        padding-left: 50px;
+    }
+
+    .greeting {
+        animation: moveGreeting 10s linear infinite;
+        white-space: nowrap; /* Prevent line break for the text */
+    }
+
+    @keyframes moveGreeting {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+}

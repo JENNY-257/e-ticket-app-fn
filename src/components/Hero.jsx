@@ -37,7 +37,7 @@ const Hero = () => {
           Hi👋👋👋👋<br />Book your ticket please
         </h1>
         <div style={paragraphContainerStyles}>
-          <p className="text-lg text-black">
+          <p className="text-[18px] text-black">
             "Explore a wide range of events happening around you.<br/> From concerts to workshops,
             we've got you covered."
           </p>

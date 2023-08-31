@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import LoginForm from './LoginForm'; 
+import SignupForm from './SignupForm'; 
 
 Modal.setAppElement('#root');
 
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsModalOpen(true);
+  const openLoginModal = () => {
+    setIsLoginModalOpen(true);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const closeLoginModal = () => {
+    setIsLoginModalOpen(false);
+  };
+
+  const openSignupModal = () => {
+    setIsSignupModalOpen(true);
+  };
+
+  const closeSignupModal = () => {
+    setIsSignupModalOpen(false);
   };
 
   return (
@@ -21,7 +32,7 @@ const Header = () => {
         <Link to="/" className="text-white text-2xl font-bold text-[30px]">
           E-Ticket App
         </Link>
-        <nav className="flex items-center"> 
+        <nav className="flex items-center">
           <Link to="/Home" className="text-white mr-[50px] text-[25px]">
             Home
           </Link>
@@ -31,43 +42,30 @@ const Header = () => {
           <Link to="/contact" className="text-white mr-[50px] text-[25px]">
             Contact Us
           </Link>
-          <Link to="/signup" className="text-white mr-[50px] text-[25px]">
+          <button
+            className="text-white mr-[50px] text-[25px]"
+            onClick={openSignupModal}
+          >
             Sign Up
-          </Link>
-          <button onClick={openModal} className="text-white mr-[50px] text-[25px]">
+          </button>
+          <button
+            className="text-white mr-[50px] text-[25px]"
+            onClick={openLoginModal}
+          >
             Login
           </button>
         </nav>
       </div>
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        style={customModalStyles}
-      >
-        <button onClick={closeModal} className="text-gray-600 absolute top-4 right-4">
-          Close
-        </button>
-        <h2>Login</h2>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Login</button>
-      </Modal>
+      <LoginForm
+        isOpen={isLoginModalOpen}
+        onRequestClose={closeLoginModal}
+      />
+      <SignupForm
+        isOpen={isSignupModalOpen}
+        onRequestClose={closeSignupModal}
+      />
     </header>
   );
-};
-
-const customModalStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    padding: '2rem',
-    borderRadius: '8px',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-  },
 };
 
 export default Header;

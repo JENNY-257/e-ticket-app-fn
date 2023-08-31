@@ -1,9 +1,9 @@
-import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import PlaceCard from '../components/PlaceCard'; 
-
+import ContactForm from '../components/ContactForm';
+import AboutUs from '../components/AboutUs';
 import muhangaImage from '../images/muhanga.png';
 import kigaliImage from '../images/Kigali.png';
 import rubavuImage from '../images/rubavu.png';
@@ -37,11 +37,16 @@ const HomePage = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
+      
         <Hero />
+        
         <div className="py-12 mr-[400px]">
+        <div className='ml-[250px]'>
+            <AboutUs/>
+        </div>
           <div className="container mx-auto ml-[200px]">
-            <h2 className="text-2xl mt-[30px] mb-[30px] ml-[400px]">KNOW SOME PLACES WE TRAVEL TO</h2>
-            <h2 className="text-2xl ml-[500px] mb-[30px]"> PLACES</h2>
+            <h2 className="text-2xl mt-[60px] mb-[60px] ml-[370px] ffont-normal font-bold">
+                KNOW SOME PLACES WE TRAVEL TO </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {places.map((place, index) => (
                 <PlaceCard 
@@ -52,6 +57,12 @@ const HomePage = () => {
               ))}
             </div>
           </div>
+         
+        </div>
+      
+        <div className='mt-[30px] mb-[100px]'>
+            <h1 className='ml-[680px] mb-[30px] text-[50px] '>Get in Touch</h1>
+        <ContactForm/>
         </div>
       </main>
       <Footer />

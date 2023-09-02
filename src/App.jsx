@@ -1,26 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import ForgotPassword from './components/ForgotPassword';
-import EventList from './components/EventList';
-import EventDetails from './components/EventDetails';
-import SeatSelection from './components/SeatSelection';
-import TicketCart from './components/TicketCart';
-import CheckoutForm from './components/CheckoutForm';
-import OrderHistory from './components/OrderHistory';
-
+import SignupForm from './components/auth/SignupForm'; // Import your SignupForm component
+import LoginForm from './components/auth/LoginForm'; // Import your LoginForm component
 
 const App = () => {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<HomePage />} /> 
-        <Route path="/:id" element={<EventList />} />
-        <Route path="/event/:eventId" element={<EventDetails />} />
-        <Route path="/event/:eventId/seats" element={<SeatSelection />} />
-        <Route path="/cart" element={<TicketCart />} />
-        <Route path="/checkout" element={<CheckoutForm />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/order-history" element={<OrderHistory />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignupForm />} /> {/* Add SignupForm component */}
+        <Route path="/login" element={<LoginForm />} /> {/* Add LoginForm component */}
       </Routes>
     </Router>
   );

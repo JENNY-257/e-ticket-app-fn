@@ -38,7 +38,6 @@ const HomePage = () => {
       <Header />
       <main className="flex-grow">
       
-        <Hero />
         
         <div className="py-12 mr-[400px]">
         <div className='ml-[250px]'>
